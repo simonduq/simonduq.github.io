@@ -1,0 +1,22 @@
+theme: jekyll-theme-cayman
+title: [The IoT-Bench Repository]
+description: [Let's do this!]
+
+collections:
+  profiles:
+    output: true
+  protocols:
+    output: true
+  testbeds:
+    output: true
+  setups:
+    output: true
+  metrics:
+    output: true
+    permalink: /:collection/:name
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
