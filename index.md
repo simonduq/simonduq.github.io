@@ -2,7 +2,7 @@
 
 Welcome to the IoT-Bench repository.
 This repository defines the framework for profiles, as well as a set of profiles and associated results.
-
+To contribute new profiles or results, see our [Wiki](TODO).
 
 The general IoT-Bench website is at: [www.iotbench.ethz.ch](https://www.iotbench.ethz.ch)
 

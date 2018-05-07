@@ -5,14 +5,14 @@
 ## Description
 {{ profile.description }}
 
-## Metrics
+## Input Parameters
 
 {% if profile.input-parameters == None %}
 None
 {% else %}
 {% for i in profile.input-parameters %}
 {%- assign parameter = site.metrics | where: "title", i[0] | first -%}
-* [{{ parameter.name }}](/metrics/input/{{i[0]}}): {{ i[1] }}
+* [{{ parameter.name }}](/metrics/{{i[0]}}): {{ i[1] }}
 {% endfor %}
 {% endif %}
 
@@ -23,7 +23,7 @@ None
 {% else %}
 {% for i in profile.observed-metrics %}
 {%- assign metric = site.metrics | where: "title", i | first -%}
-* [{{ metric.name }}](/metrics/observed/{{i}})
+* [{{ metric.name }}](/metrics/{{i}})
 {% endfor %}
 {% endif %}
 
@@ -34,7 +34,7 @@ None
 {% else %}
 {% for i in profile.output-metrics %}
 {%- assign metric = site.metrics | where: "title", i | first -%}
-* [{{ metric.name }}](/metrics/output/{{i}})
+* [{{ metric.name }}](/metrics/{{i}})
 {% endfor %}
 {% endif %}
 

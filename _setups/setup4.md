@@ -1,9 +1,9 @@
 ---
-title: setup5
-name: Setup 5
-profile: collect-4s
-testbed: indriya
-protocol: protocol1
+title: setup4
+profile: somepattern-random
+testbed: flocklab
+protocol: protocol3
+configuration: default
 description: >
   This describes how the protocol was configured,
   and any other relevant aspect.

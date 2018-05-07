@@ -1,9 +1,9 @@
 ---
 title: setup3
-name: Setup 3
-profile: many2many-30s
+profile: somepattern-50s
 testbed: indriya
 protocol: protocol2
+configuration: default
 description: >
   This describes how the protocol was configured,
   and any other relevant aspect.

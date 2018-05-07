@@ -1,17 +1,17 @@
 ---
-title: many2many-30s
-name: Many-to-many, 30s
+title: somepattern-random
+name: A given pattern, 1--180s
 description: >
   This is a *markdown* description of the profile.
   Multiple lines are allowed, and so are:
     * Item lists
     * And basically any other markdown stuff.
 input-parameters:
-  traffic-pattern: Many-to-many
-  traffic-period: 30s
-  traffic-payload: 4B
+  traffic-pattern: Some pattern (space domain)
+  traffic-period: 1s--180s
+  traffic-payload: 4B-1kB
 observed-metrics: []
-output-metrics: [ e2e-pdr, e2e-latency, power, channel-utilization ]
+output-metrics: [ e2e-pdr, e2e-latency, power ]
 ---
 
 {% include profile.md %}

@@ -1,9 +1,9 @@
 ---
 title: setup2
-name: Setup 2
-profile: collect-4s
+profile: somepattern-4s
 testbed: iotlab
 protocol: protocol3
+configuration: default
 description: >
   This describes how the protocol was configured,
   and any other relevant aspect.
