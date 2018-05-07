@@ -10,7 +10,7 @@ input-parameters:
   traffic-pattern: Data collection
   traffic-period: 4s
   traffic-payload: 8B
-observed-metrics: [ ambient-interference ]
+observed-metrics: []
 output-metrics: [ e2e-pdr, e2e-latency, power ]
 ---
 

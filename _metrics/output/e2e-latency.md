@@ -1,8 +1,8 @@
 ---
 title: e2e-latency
-name: Latency
+name: Latency (ms)
 description: >
-  The end-to-end message latency, at application-layer.
+  The end-to-end message latency in milliseconds, at application-layer.
 ---
 
 {% include output-metric.md %}

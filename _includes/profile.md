@@ -1,16 +1,16 @@
 {% assign profile = page %}
 
-# Profile: {{ page.name }}
+# Profile: {{ profile.name }}
 
 ## Description
-{{ page.description }}
+{{ profile.description }}
 
 ## Metrics
 
-{% if page.input-parameters == None %}
+{% if profile.input-parameters == None %}
 None
 {% else %}
-{% for i in page.input-parameters %}
+{% for i in profile.input-parameters %}
 {%- assign parameter = site.metrics | where: "title", i[0] | first -%}
 * [{{ parameter.name }}](/metrics/input/{{i[0]}}): {{ i[1] }}
 {% endfor %}
@@ -18,10 +18,10 @@ None
 
 ## Observed Metrics
 
-{% if page.observed-metrics == None %}
+{% if profile.observed-metrics | size == 0 %}
 None
 {% else %}
-{% for i in page.observed-metrics %}
+{% for i in profile.observed-metrics %}
 {%- assign metric = site.metrics | where: "title", i | first -%}
 * [{{ metric.name }}](/metrics/observed/{{i}})
 {% endfor %}
@@ -29,10 +29,10 @@ None
 
 ## Output Metrics
 
-{% if page.output-metrics == None %}
+{% if profile.output-metrics == None %}
 None
 {% else %}
-{% for i in page.output-metrics %}
+{% for i in profile.output-metrics %}
 {%- assign metric = site.metrics | where: "title", i | first -%}
 * [{{ metric.name }}](/metrics/output/{{i}})
 {% endfor %}
@@ -40,13 +40,4 @@ None
 
 ## Results
 
-{% assign profile_setups = site.setups | where: "profile", profile.title %}
-{% assign all_metrics = page.output-metrics | concat: page.observed-metrics %}
-
-|  | {% for m in all_metrics %} {% assign metric = site.metrics | where: "title", m | first %} {{metric.name | truncate: 16 }} | {% endfor %}
-| --- | {% for m in all_metrics %} --- | {% endfor %}
-{%- for setup in profile_setups %}
-{%- assign protocol = site.protocols | where: "title", setup.protocol | first %}
-{%- assign testbed = site.testbeds | where: "title", setup.testbed | first %}
-[{{setup.name}}](/setups/{{setup.title}}) ({{testbed.name}}, {{protocol.name}}) | | | |
-{%- endfor %}
+{% include results-profile.md %}
