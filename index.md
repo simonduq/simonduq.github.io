@@ -17,8 +17,6 @@ We currently have the following profiles:
 * [{{profile.name}}](/profiles/{{profile.uid}})
 {% endfor %}
 
-[This page](pages/results-per-profile.html) summarizes all evaluation results, shown per-profile.
-
 ## Testbeds
 
 We currently have the following testbeds:
@@ -32,3 +30,22 @@ We currently have results for the following protocols:
 {% for protocol in site.protocols %}
 * [{{protocol.name}}](/protocols/{{protocol.uid}})
 {% endfor %}
+
+## Results
+
+A summary of current results is shown below:
+
+|  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.uid}}) | {% endfor %}
+| --- | {% for setup in site.setups %} --- | {% endfor %}
+{%- for profile in site.profiles %}
+| [{{profile.name}}](/profiles/{{profile.uid}}) |
+{%- for testbed in site.testbeds -%}
+{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "testbed", testbed.uid -%}
+{%- for setup in cell_setups -%}
+{%- assign protocol = site.protocols | where: "uid", setup.protocol | first -%}
+{%- assign profile = site.profiles | where: "uid", setup.profile | first -%}
+<small>[{{protocol.name}} [{{setup.configuration}}]](/setups/{{setup.uid}})</small><br />
+{%- endfor -%}
+ |
+{%- endfor -%}
+{%- endfor %}
