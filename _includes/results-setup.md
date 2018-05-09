@@ -43,11 +43,13 @@
 {% assign metric = site.metrics | where: "title", m | first %}
 
 {% assign plot-id = {{runid}} | append: {{metric.title}} %}
-{% include plotly-boxplot-init.md %}
+{% include plotly-boxplot-init.md inline=true %}
 {% assign plot-ydata = res[metric.title] %}
 {% include plotly-boxplot-add.md %}
-{% include plotly-boxplot-show.md ylabel=metric.name %}
+{% include plotly-boxplot-show.md name=" " width=200 height=200 name="Dist" xaxis=false ylabel=metric.name %}
 
 {% endfor %}
+
+{% include plotly-boxplot-inline-clear.md %}
 
 {% endfor %}

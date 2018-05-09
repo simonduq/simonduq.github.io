@@ -11,7 +11,7 @@ input-parameters:
   traffic-period: 4s
   traffic-payload: 8B
 observed-metrics: []
-output-metrics: [ e2e-pdr, e2e-latency, power ]
+output-metrics: [ e2e-pdr, e2e-latency, power, link-prr ]
 ---
 
 {% include profile.md %}
