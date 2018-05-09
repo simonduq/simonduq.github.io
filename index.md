@@ -8,13 +8,13 @@ The general IoT-Bench website is at: [www.iotbench.ethz.ch](https://www.iotbench
 
 ## Profile Framework
 
-The general IoT-Bench framework can be found [here](pages/framework).
+The general IoT-Bench framework can be found [here](/pages/framework).
 
 ## Profiles
 
 We currently have the following profiles:
 {% for profile in site.profiles %}
-* [{{profile.name}}](profiles/{{profile.title}})
+* [{{profile.name}}](/profiles/{{profile.uid}})
 {% endfor %}
 
 [This page](pages/results-per-profile.html) summarizes all evaluation results, shown per-profile.
@@ -23,12 +23,12 @@ We currently have the following profiles:
 
 We currently have the following testbeds:
 {% for testbed in site.testbeds %}
-* [{{testbed.name}}](testbeds/{{testbed.title}})
+* [{{testbed.name}}](/testbeds/{{testbed.uid}})
 {% endfor %}
 
 ## Protocols
 
 We currently have results for the following protocols:
 {% for protocol in site.protocols %}
-* [{{protocol.name}}](protocols/{{protocol.title}})
+* [{{protocol.name}}](/protocols/{{protocol.uid}})
 {% endfor %}

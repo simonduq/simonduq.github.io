@@ -1,5 +1,5 @@
 ---
-title: power
+uid: power
 name: Power (mW)
 description: >
   The average power consumption in milliWatt.

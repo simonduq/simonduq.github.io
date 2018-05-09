@@ -1,5 +1,5 @@
 ---
-title: link-prr
+uid: link-prr
 name: Link PRR (%)
 description: >
   The Packet Reception Rate at the link-layer, i.e., likelihood

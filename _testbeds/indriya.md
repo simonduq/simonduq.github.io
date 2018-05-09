@@ -1,5 +1,5 @@
 ---
-title: indriya
+uid: indriya
 name: Indriya
 description: >
   This is a *markdown* description of the testbed.

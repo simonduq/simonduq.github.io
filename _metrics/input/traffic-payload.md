@@ -1,5 +1,5 @@
 ---
-title: traffic-payload
+uid: traffic-payload
 name: Traffic Payload
 description: >
   The application-layer packet payload. E.g.:

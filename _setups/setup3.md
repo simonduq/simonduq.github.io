@@ -1,5 +1,5 @@
 ---
-title: setup3
+uid: setup3
 profile: somepattern-50s
 testbed: indriya
 protocol: protocol2

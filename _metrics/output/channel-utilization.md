@@ -1,5 +1,5 @@
 ---
-title: channel-utilization
+uid: channel-utilization
 name: Channel Utilization (%)
 description: >
   The percentage of time spent with the radio transmitting.

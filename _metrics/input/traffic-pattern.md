@@ -1,5 +1,5 @@
 ---
-title: traffic-pattern
+uid: traffic-pattern
 name: Traffic Pattern
 description: >
   The traffic pattern in space, e.g.:

@@ -1,5 +1,5 @@
 ---
-title: setup4
+uid: setup4
 profile: somepattern-random
 testbed: flocklab
 protocol: protocol3

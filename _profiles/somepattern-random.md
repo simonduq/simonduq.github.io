@@ -1,5 +1,5 @@
 ---
-title: somepattern-random
+uid: somepattern-random
 name: A given pattern, 1--180s
 description: >
   This is a *markdown* description of the profile.

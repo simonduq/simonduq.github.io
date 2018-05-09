@@ -1,5 +1,5 @@
 ---
-title: traffic-period
+uid: traffic-period
 name: Traffic Period
 description: >
   The application-layer traffic payload of each transmission event, e.g.:

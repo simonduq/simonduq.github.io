@@ -1,5 +1,5 @@
 ---
-title: somepattern-50s
+uid: somepattern-50s
 name: A given pattern, 50s
 description: >
   This is a *markdown* description of the profile.

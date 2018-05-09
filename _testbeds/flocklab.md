@@ -1,5 +1,5 @@
 ---
-title: flocklab
+uid: flocklab
 name: Flocklab
 description: >
   This is a *markdown* description of the testbed.

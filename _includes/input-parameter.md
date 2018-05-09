@@ -17,7 +17,7 @@
 
 This input parameter is used by the following profiles:
 {% for profile in selected_profiles %}
-* [{{ profile.name }}](/profiles/{{profile.title}})
+* [{{ profile.name }}](/profiles/{{profile.uid}})
 {% endfor %}
 
 {% else %}

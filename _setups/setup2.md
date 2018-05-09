@@ -1,5 +1,5 @@
 ---
-title: setup2
+uid: setup2
 profile: somepattern-4s
 testbed: iotlab
 protocol: protocol3
