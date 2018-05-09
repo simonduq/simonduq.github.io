@@ -1,6 +1,6 @@
 theme: jekyll-theme-cayman
-title: [The IoT-Bench Repository]
-description: [Let's do this!]
+title: The IoT-Bench Repository
+description: A community effort to better evaluate and compare low-power wireless networks
 
 collections:
   profiles:
