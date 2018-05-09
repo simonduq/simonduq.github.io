@@ -8,6 +8,7 @@ data.push({
 	],
   type: 'box',
 	name: '{{include.name}}',
+  hoverinfo: "toto"
 })
 
 </script>

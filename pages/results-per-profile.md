@@ -7,6 +7,4 @@ title: Per Profile Results
 {% for profile in site.profiles %}
 ## [{{profile.name}}](/profiles/{{profile.title}})
 
-{% include results-profile.md %}
-
 {% endfor %}
