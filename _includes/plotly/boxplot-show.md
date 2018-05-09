@@ -7,7 +7,7 @@ var layout = {
 {%- endif %}
   },
   yaxis: {
-    uid: '{{ include.ylabel }}',
+    title: '{{ include.ylabel }}',
   },
   autosize: false,
 

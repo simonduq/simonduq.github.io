@@ -18,10 +18,10 @@ var data = [{
 
 var layout = {
   xaxis: {
-    uid: '{{ include.xlabel }}',
+    title: '{{ include.xlabel }}',
   },
   yaxis: {
-    uid: '{{ include.ylabel }}',
+    title: '{{ include.ylabel }}',
   },
 };
 
