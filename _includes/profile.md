@@ -52,7 +52,7 @@ This profile has results for the following setups:
 
 The data, with for each setup a distribution of per-run means, is shown next.
 
-{% include plotly-header.md %}
+{% include plotly/header.md %}
 
 {% for m in profile.output-metrics %}
 {% assign metric = site.metrics | where: "title", m | first %}
@@ -65,7 +65,7 @@ The data, with for each setup a distribution of per-run means, is shown next.
 {% endcomment %}
 
 {% assign plot-id = "summary-"| append: {{metric.title}} %}
-{% include plotly-boxplot-init.md %}
+{% include plotly/boxplot-init.md %}
 
 {% for setup in profile_setups %}
 
@@ -78,13 +78,13 @@ The data, with for each setup a distribution of per-run means, is shown next.
 {% for run in results %}
 
 {% assign data = run[1][metric.title] %}
-{% include function-mean.md %}
+{% include functions/mean.md %}
 {% assign setup_means = setup_means | push: return %}
 
 {% endfor %}
 
 {% assign plot-ydata = setup_means %}
-{% include plotly-boxplot-add.md name=setup_name %}
+{% include plotly/boxplot-add.md name=setup_name %}
 
 {% endfor %}
 
@@ -92,6 +92,6 @@ The data, with for each setup a distribution of per-run means, is shown next.
     Now, plot the current metric
 {% endcomment %}
 
-{% include plotly-boxplot-show.md ylabel=metric.name %}
+{% include plotly/boxplot-show.md ylabel=metric.name %}
 
 {% endfor %}

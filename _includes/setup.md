@@ -25,7 +25,7 @@ Available resources:
 
 {% assign results = site.data.results[{{setup.title}}]}} %}
 
-{% include plotly-header.md %}
+{% include plotly/header.md %}
 
 ### Results Summary
 
@@ -37,7 +37,7 @@ Available resources:
 {% assign setup_means = "" | split: "" %}
 
 {% assign plot-id  = "summary-" | append: {{metric.title}} %}
-{% include plotly-boxplot-init.md %}
+{% include plotly/boxplot-init.md %}
 
 {% for run in results %}
 
@@ -48,11 +48,11 @@ Available resources:
 {% assign setup_means = setup_means | push: return %}
 
 {% assign plot-ydata = run[1][metric.title] %}
-{% include plotly-boxplot-add.md name=run_name %}
+{% include plotly/boxplot-add.md name=run_name %}
 
 {% endfor %}
 
-{% include plotly-boxplot-show.md ylabel=metric.name %}
+{% include plotly/boxplot-show.md ylabel=metric.name %}
 
 {% endfor %}
 
@@ -68,13 +68,13 @@ Available resources:
 {% assign metric = site.metrics | where: "title", m | first %}
 
 {% assign plot-id = {{runid}} | append: {{metric.title}} %}
-{% include plotly-boxplot-init.md inline=true %}
+{% include plotly/boxplot-init.md inline=true %}
 {% assign plot-ydata = res[metric.title] %}
-{% include plotly-boxplot-add.md %}
-{% include plotly-boxplot-show.md name=" " width=200 height=200 name="Dist" xaxis=false ylabel=metric.name %}
+{% include plotly/boxplot-add.md %}
+{% include plotly/boxplot-show.md name=" " width=200 height=200 name="Dist" xaxis=false ylabel=metric.name %}
 
 {% endfor %}
 
-{% include plotly-boxplot-inline-clear.md %}
+{% include plotly/boxplot-inline-clear.md %}
 
 {% endfor %}
