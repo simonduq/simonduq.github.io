@@ -3,7 +3,7 @@
 {% assign testbed = site.testbeds | where: "uid", setup.testbed | first %}
 {% assign protocol = site.protocols | where: "uid", setup.protocol | first %}
 
-# Setup: {{ protocol.name }} [{{ setup.configuration }}]. {{ profile.name }} @ {{ testbed.name }}
+# Experimental Setup page
 
 This page shows the following setup:
 * Profile: [{{profile.name}}](/profiles/{{profile.uid}})
@@ -56,13 +56,13 @@ Available resources:
 
 {% endfor %}
 
-### Per-run Results
+### Detailed Statistics for each Run
 
 {% for run in results %}
 {% assign runid = run[0] %}
 {% assign res = results[{{runid}}] %}
 
-#### {{runid}}
+* {{runid}} *({{run[1].date}})*
 
 {% for m in profile.output-metrics %}
 {% assign metric = site.metrics | where: "uid", m | first %}
