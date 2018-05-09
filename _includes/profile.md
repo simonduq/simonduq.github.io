@@ -44,10 +44,19 @@ None
 {% assign profile_setups = profile_setups | sort: "testbed" %}
 
 This profile has results for the following setups:
-{%- for setup in profile_setups %}
-{%- assign protocol = site.protocols | where: "title", setup.protocol | first %}
-{%- assign testbed = site.testbeds | where: "title", setup.testbed | first %}
-* [{{ protocol.name }} [{{ setup.configuration }}]. {{ profile.name }} @ {{ testbed.name }}](/setups/{{setup.title}})
+
+|  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.title}}) | {% endfor %}
+| --- | {% for setup in site.setups %} --- | {% endfor %}
+{%- for protocol in site.protocols %}
+| [{{protocol.name}}](/protocols/{{protocol.title}}) |
+{%- for testbed in site.testbeds -%}
+{%- assign cell_setups = site.setups | where: "profile", profile.title | where: "protocol": protocol.title | where: "testbed", testbed.title -%}
+{%- for setup in cell_setups -%}
+{%- assign profile = site.profiles | where: "title", setup.profile | first -%}
+[[{{setup.configuration}}]](/setups/{{setup.title}})<br />
+{%- endfor -%}
+ |
+{%- endfor -%}
 {%- endfor %}
 
 The data, with for each setup a distribution of per-run means, is shown next.
