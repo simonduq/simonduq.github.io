@@ -1,3 +1,5 @@
+[//]: # Include this for pages that will require Plotly
+
 <style>
 .inline-plotly .plotly
 {

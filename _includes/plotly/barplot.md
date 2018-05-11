@@ -1,3 +1,6 @@
+[//]: # Creates a plotly barplot into HTML div plot-id. Used plot-xadta
+[//]: # and plot-ydata as data sources. Include parameters: xlabel, ylabel
+
 <div id='{{plot-id}}'></div>
 
 <script>

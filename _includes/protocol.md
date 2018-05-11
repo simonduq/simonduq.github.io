@@ -1,3 +1,7 @@
+[//]: # Meant for inclusion from pages under \_protocols, which defines
+[//]: # protocols. Shows a description of the protocol and lists associated
+[//]: # results in a table.
+
 {% assign protocol = page %}
 
 # Protocol: {{ protocol.name }}
@@ -6,6 +10,9 @@
 {{ page.description }}
 
 ## Results for {{ protocol.name }}
+
+[//]: # Build a table with one row per profile, one column per testbed,
+[//]: # and each cell showing all setups with results for this protocol.
 
 |  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.uid}}) | {% endfor %}
 | --- | {% for setup in site.setups %} --- | {% endfor %}

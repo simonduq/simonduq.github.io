@@ -1,8 +1,6 @@
-{% comment %}
-    Computes mean on an array.
-    Input: variable 'data', the array
-    Return: variable 'return'
-{% endcomment %}
+[//]: # Computes mean on an array.
+[//]: # Input: variable data, the array
+[//]: # Return: variable return
 
 {% assign sum__ = 0. %}
 {% for val in data %}

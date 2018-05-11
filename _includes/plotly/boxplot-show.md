@@ -1,3 +1,6 @@
+[//]: # Finalizes and creates the current boxplot into HTML div plot-id.
+[//]: # Include parameters: width, height, ylabel.
+
 <script>
 
 var layout = {

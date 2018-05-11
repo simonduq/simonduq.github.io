@@ -1,3 +1,6 @@
+[//]: # Add one new x item to current botplot. Data taken from plot-ydata.
+[//]: # Include parameters: name (x item label)
+
 <script>
 
 data.push({
@@ -8,7 +11,6 @@ data.push({
 	],
   type: 'box',
 	name: '{{include.name}}',
-  hoverinfo: "toto"
 })
 
 </script>

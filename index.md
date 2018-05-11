@@ -35,6 +35,9 @@ We currently have results for the following protocols:
 
 A summary of current results is shown below:
 
+[//]: # Show a table one row per profile, one column per testbed, and in each
+[//]: # cell, the setups we have results for.
+
 |  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.uid}}) | {% endfor %}
 | --- | {% for setup in site.setups %} --- | {% endfor %}
 {%- for profile in site.profiles %}

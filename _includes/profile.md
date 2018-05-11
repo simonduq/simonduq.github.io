@@ -1,3 +1,9 @@
+[//]: # Meant for inclusion from pages under \_profiles, which defines
+[//]: # evaluation profiles. Shows a description of the profile, i.e.
+[//]: # textual, as well as assigned input parameters, and selected
+[//]: # observed and output metrics. Also shows a table summary
+[//]: # of all results for this profile. Finally, plots all results.
+
 {% assign profile = page %}
 
 # Profile: {{ profile.name }}
@@ -45,6 +51,9 @@ None
 
 This profile has results for the following setups:
 
+[//]: # Build a table with one row per protocol, one column per testbed,
+[//]: # and each cell showing all setups with results for this profile.
+
 |  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.uid}}) | {% endfor %}
 | --- | {% for setup in site.setups %} --- | {% endfor %}
 {%- for protocol in site.protocols %}
@@ -66,41 +75,42 @@ The data, with for each setup a distribution of per-run means, is shown next.
 {% for m in profile.output-metrics %}
 {% assign metric = site.metrics | where: "uid", m | first %}
 
-{% comment %}
-    For each metric plot performance of each setup.
-    For each setup, we construct an array with one element
-    per run, which contains the mean value over the run.
-    The boxplot will show the distribution across runs in a given setup.
-{% endcomment %}
+[//]: # For each metric plot performance of each setup as a boxplot-init
+[//]: # For each setup, we construct an array with one element
+[//]: # per run, which contains the mean value over the run.
+[//]: # The boxplot will show the distribution across runs in a given setup.
+[//]: # One x item per setup.
 
+[//]: # Start new plot
 {% assign plot-id = "summary-"| append: {{metric.uid}} %}
 {% include plotly/boxplot-init.md %}
 
+[//]: # For each setup, build array that summarizes results for the current metric
 {% for setup in profile_setups %}
 
 {% assign protocol = site.protocols | where: "uid", setup.protocol | first %}
 {% assign testbed = site.testbeds | where: "uid", setup.testbed | first %}
 {% assign results = site.data.results[{{setup.uid}}]}} %}
 {% assign setup_name = {{protocol.name}} | append: " [" | append: {{setup.configuration}} | append: "]<br />" | append: {{testbed.name}}  %}
+[//]: # Create an empty array where to store the mean result of each run
 {% assign setup_means = "" | split: "" %}
 
 {% for run in results %}
 
+[//]: # Compute mean metric for this run, populate array setup_means
 {% assign data = run[1][metric.uid] %}
 {% include functions/mean.md %}
 {% assign setup_means = setup_means | push: return %}
 
 {% endfor %}
 
+[//]: # Add data to boxplot (one new x item)
 {% assign plot-ydata = setup_means %}
 {% include plotly/boxplot-add.md name=setup_name %}
 
 {% endfor %}
 
-{% comment %}
-    Now, plot the current metric
-{% endcomment %}
-
+[//]: # Now, plot the current metric
 {% include plotly/boxplot-show.md ylabel=metric.name %}
 
 {% endfor %}
