@@ -49,7 +49,7 @@ Available resources:
 {% assign plot-id  = "summary-" | append: {{metric.uid}} %}
 {% include plotly/boxplot-init.md %}
 
-{% for run in results %}
+{% for run in results | sort: "date" %}
 
 {% assign run_name = run[0] %}
 {% assign data = run[1][metric.uid] %}
