@@ -1,54 +1,46 @@
 # Home Page
 
-Welcome to the IoT-Bench repository.
-This repository defines the framework for profiles, as well as a set of profiles and associated results.
-To contribute new profiles or results, see our [Wiki](TODO).
+{% include plotly/header.md %}
+{% assign develop_runs = site.runs | where_exp: "item", "item.branch!='contiki-ng/contiki-ng/develop'" %}
+{% assign develop_runs = (develop_runs | sort: "date") | reverse %}
+{% assign other_runs = site.runs | where_exp: "item", "item.branch=='contiki-ng/contiki-ng/develop'" %}
+{% assign other_runs = (other_runs | sort: "date") | reverse %}
 
-The general IoT-Bench website is at: [www.iotbench.ethz.ch](https://www.iotbench.ethz.ch)
+## Contiki-NG 'develop' branch
 
-## Profile Framework
+{% assign develop_runs_count = develop_runs | size %}
+{% if develop_runs_count != 0 %}
+|  | PDR (%) | RTT (s) | Duty cycle (%) |
+| --- | ---: | ---: | ---:  |
+{% for run in develop_runs -%}
+[{{run.label}} -- {{run.date}}]({{ run.url }}) | {{run.global-stats.pdr}} | {{run.global-stats.latency}} | {{run.global-stats.duty-cycle}} |
+{% endfor %}
+{% endif %}
 
-The general IoT-Bench framework can be found [here](/pages/framework).
+[//]: # Plot PDR for all runs of the the develop branch
+{% assign metric = "pdr" %}
+{% assign plot-id = "summary-"| append: {{metric}} %}
+{% include plotly/boxplot-init.md %}
 
-## Profiles
-
-We currently have the following profiles:
-{% for profile in site.profiles %}
-* [{{profile.name}}](/profiles/{{profile.uid}})
+{% for run in develop_runs -%}
+[//]: # Add data to boxplot (one new x item)
+{% assign plot-ydata = run.stats[metric].per-node.y %}
+{% assign date = run.date | date: "%m/%d/%Y %H:%M:%S" %}
+{% include plotly/boxplot-add.md name=date %}
 {% endfor %}
 
-## Testbeds
+[//]: # Now, plot the current boxplot
+{% include plotly/boxplot-show.md ylabel="End-to-end PDR (%)"%}
 
-We currently have the following testbeds:
-{% for testbed in site.testbeds %}
-* [{{testbed.name}}](/testbeds/{{testbed.uid}})
+More graphs available on [this page](all-graphs).
+
+## Other runs
+
+{% assign other_runs_count = other_runs | size %}
+{% if other_runs_count != 0 %}
+|  | PDR (%) | RTT (s) | Duty cycle (%) |
+| --- | ---: | ---: | ---:  |
+{% for run in other_runs -%}
+[{{run.label}} -- {{run.date}}]({{ run.url }}) | {{run.global-stats.pdr}} | {{run.global-stats.latency}} | {{run.global-stats.duty-cycle}} |
 {% endfor %}
-
-## Protocols
-
-We currently have results for the following protocols:
-{% for protocol in site.protocols %}
-* [{{protocol.name}}](/protocols/{{protocol.uid}})
-{% endfor %}
-
-## Results
-
-A summary of current results is shown below:
-
-[//]: # Show a table one row per profile, one column per testbed, and in each
-[//]: # cell, the setups we have results for.
-
-|  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.uid}}) | {% endfor %}
-| --- | {% for setup in site.setups %} --- | {% endfor %}
-{%- for profile in site.profiles %}
-| [{{profile.name}}](/profiles/{{profile.uid}}) |
-{%- for testbed in site.testbeds -%}
-{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "testbed", testbed.uid -%}
-{%- for setup in cell_setups -%}
-{%- assign protocol = site.protocols | where: "uid", setup.protocol | first -%}
-{%- assign profile = site.profiles | where: "uid", setup.profile | first -%}
-<small>[{{protocol.name}} [{{setup.configuration}}]](/setups/{{setup.uid}})</small><br />
-{%- endfor -%}
- |
-{%- endfor -%}
-{%- endfor %}
+{% endif %}

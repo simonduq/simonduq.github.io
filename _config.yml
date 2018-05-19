@@ -1,19 +1,9 @@
 theme: jekyll-theme-cayman
-title: The IoT-Bench Repository
-description: A community effort to better evaluate and compare low-power wireless networks
+title: Contiki-NG Testbed Runs
 
 collections:
-  profiles:
+  runs:
     output: true
-  protocols:
-    output: true
-  testbeds:
-    output: true
-  setups:
-    output: true
-  metrics:
-    output: true
-    permalink: /:collection/:name
 
 defaults:
   - scope:

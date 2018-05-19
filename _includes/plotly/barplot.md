@@ -1,7 +1,7 @@
-[//]: # Creates a plotly barplot into HTML div plot-id. Used plot-xadta
+[//]: # Creates a plotly barplot into HTML div plot-id. Uses plot-xdata
 [//]: # and plot-ydata as data sources. Include parameters: xlabel, ylabel
 
-<div id='{{plot-id}}'></div>
+<span id='{{plot-id}}' {% if include.inline %} class='inline-plotly' {% endif %} ></span>
 
 <script>
 
@@ -26,6 +26,23 @@ var layout = {
   yaxis: {
     title: '{{ include.ylabel }}',
   },
+  autosize: false,
+
+  {%- if include.height %}
+    height: {{ include.height }},
+  {%- else %}
+    height: 300,
+  {%- endif %}
+  {%- if include.width %}
+    width: {{ include.width }},
+  {%- endif %}
+    margin: {
+      l: 70,
+      r: 10,
+      b: 40,
+      t: 30,
+      pad: 4,
+    },
 };
 
 Plotly.newPlot('{{plot-id}}', data, layout);

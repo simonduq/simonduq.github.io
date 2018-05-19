@@ -11,6 +11,9 @@ data.push({
 	],
   type: 'box',
 	name: '{{include.name}}',
+  marker: {
+    color: 'rgb(8,81,156)',
+  },
 })
 
 </script>
