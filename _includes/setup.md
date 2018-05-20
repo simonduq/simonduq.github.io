@@ -9,11 +9,14 @@
 ## About the setup
 
 * Label: {{ setup.label }}
-{% if setup.repository %}
+{% if setup.repository -%}
 * Repository: [{{ setup.repository }}](https://github.com/{{setup.repository}})
 * Branch: [{{ setup.branch }}](https://github.com/{{setup.repository}}/tree/{{setup.branch}})
 * Path: [{{ setup.xppath }}](https://github.com/{{setup.repository}}/tree/{{setup.branch}}/{{setup.xppath}})
-* Configuration: [{{ setup.configuration }}](https://github.com/{{setup.repository}}/tree/{{setup.branch}}/{{setup.xppath}}/Makefile)
+* Flags:
+{%- for f in setup.flags %}
+  * {{ f[0] }}: {{ f[1] }}
+{% endfor %}
 {% endif %}
 
 {{setup.description}}
@@ -78,7 +81,8 @@ Runs for this setup:
 |  | PDR (%) | RTT (s) | Duty cycle (%) |
 | --- | ---: | ---: | ---:  |
 {% for run in runs -%}
-[{{run.date}}]({{ run.url }}) | {{run.global-stats.pdr}} | {{run.global-stats.latency}} | {{run.global-stats.duty-cycle}} |
+{% assign date = run.date | date: "%m/%d/%Y %H:%M:%S" -%}
+[{{date}}]({{ run.url }}) | {{run.global-stats.pdr}} | {{run.global-stats.latency}} | {{run.global-stats.duty-cycle}} |
 {% endfor %}
 
 ## Graphs

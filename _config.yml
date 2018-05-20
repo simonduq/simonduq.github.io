@@ -1,5 +1,6 @@
 theme: jekyll-theme-cayman
 title: Contiki-NG Testbed Runs
+timezone: 'SE'
 
 collections:
   setups:

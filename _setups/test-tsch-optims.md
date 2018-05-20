@@ -5,7 +5,8 @@ label: RPL-Lite + TSCH + Orchestra (Optims)
 repository: simonduq/contiki-ng
 branch: wip/testbed
 xppath: examples/benchmarks/rpl-req-resp
-configuration: CONFIG_TSCH_OPTIMS
+flags:
+  CONFIG: CONFIG_TSCH_OPTIMS
 description:
   An optimized version of the tsch-optims setup. Adds a few configuration
   options to both RPL and TSCH for more reliable and efficient communication.

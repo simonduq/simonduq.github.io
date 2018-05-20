@@ -4,27 +4,29 @@
 {% assign setup = site.setups | where: "uid", run.setup | first %}
 
 {% if setup.repository %}
+{% assign label = setup.label %}
 {% assign repository = setup.repository %}
 {% assign branch = setup.branch %}
 {% assign xppath = setup.xppath %}
-{% assign configuration = setup.configuration %}
+{% assign flags = setup.flags %}
 {% else %}
+{% assign label = run.label %}
 {% assign repository = run.repository %}
 {% assign branch = run.branch %}
 {% assign xppath = run.xppath %}
-{% assign configuration = run.configuration %}
+{% assign flags = run.flags %}
 {% endif %}
 
 # Run page
 
 ## About the run
-
-* Date: {{ run.date }}
+* Label: {{label}}
+* Date: {{ run.date | date: "%m/%d/%Y %H:%M:%S" }}
 * Setup: [{{ run.setup }}]({{setup.url}})
 * Repository: [{{ repository }}](https://github.com/{{repository}})
 * Branch: [{{ branch }}](https://github.com/{{repository}}/tree/{{branch}})
 * Path: [{{ xppath }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}})
-* Configuration: [{{ configuration }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}}/Makefile)
+* Flags: [{{ flags }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}}/Makefile)
 * Git commit: [{{ run.commit }}](https://github.com/{{run.repository}}/tree/{{run.commit}})
 
 ## Statistics summary
