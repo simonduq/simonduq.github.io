@@ -27,7 +27,7 @@ var layout = {
     r: 0,
     b: 80,
     t: 30,
-    pad: 4,
+    pad: 0,
   },
   showlegend: false,
 };

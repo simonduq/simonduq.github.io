@@ -1,18 +1,35 @@
-{% assign run = page %}
 {% include plotly/header.md %}
+
+{% assign run = page %}
+{% assign setup = site.setups | where: "uid", run.setup | first %}
+
+{% if setup.repository %}
+{% assign repository = setup.repository %}
+{% assign branch = setup.branch %}
+{% assign xppath = setup.xppath %}
+{% assign configuration = setup.configuration %}
+{% else %}
+{% assign repository = run.repository %}
+{% assign branch = run.branch %}
+{% assign xppath = run.xppath %}
+{% assign configuration = run.configuration %}
+{% endif %}
 
 # Run page
 
 ## About the run
 
 * Date: {{ run.date }}
-* Label: {{ run.label }}
-* Repository: [{{ run.repository }}](https://github.com/{{run.repository}})
-* Branch: [{{ run.branch }}](https://github.com/{{run.repository}}/tree/{{run.branch}})
+* Setup: [{{ run.setup }}]({{setup.url}})
+* Repository: [{{ repository }}](https://github.com/{{repository}})
+* Branch: [{{ branch }}](https://github.com/{{repository}}/tree/{{branch}})
+* Path: [{{ xppath }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}})
+* Configuration: [{{ configuration }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}}/Makefile)
 * Git commit: [{{ run.commit }}](https://github.com/{{run.repository}}/tree/{{run.commit}})
 
 ## Statistics summary
 
+* Run duration: {{run.duration}} minutes
 * End-to-end PDR: {{run.global-stats.pdr}} % *({{run.global-stats.packets-received}}/{{run.global-stats.packets-sent}} packets, or a loss rate of {{run.global-stats.loss-rate}})*
 * Round-trip latency: {{run.global-stats.latency}} seconds
 * Radio duty cycle: {{run.global-stats.duty-cycle}} %
@@ -23,7 +40,7 @@
 
 {% for s in run.stats %}
 {% assign metric = s[0] %}
-* {{run.stats[metric].name}}
+* {{run.stats[metric].name}}:
 
 {% assign plot-id = {{forloop.index}} | append: "-per-node" %}
 {% assign plot-xdata = {{run.stats[metric].per-node.x}} %}

@@ -2,6 +2,8 @@ theme: jekyll-theme-cayman
 title: Contiki-NG Testbed Runs
 
 collections:
+  setups:
+    output: true
   runs:
     output: true
 

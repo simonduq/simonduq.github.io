@@ -3,7 +3,7 @@
 [//]: # Return: variable return
 
 {% assign sum__ = 0. %}
-{% for val in data %}
+{% for val in {{data}} %}
 {% assign sum__ = sum__ | plus: val %}
 {% endfor %}
 {% assign count__ = data | size %}

@@ -41,7 +41,7 @@ var layout = {
       r: 10,
       b: 40,
       t: 30,
-      pad: 4,
+      pad: 0,
     },
 };
 
