@@ -20,7 +20,8 @@ Runs for this setup:
 |  | PDR (%) | RTT (s) | Duty cycle (%) |
 | --- | ---: | ---: | ---:  |
 {% for run in runs -%}
-[{{run.date}}]({{ run.url }}) | {{run.global-stats.pdr}} | {{run.global-stats.latency}} | {{run.global-stats.duty-cycle}} |
+{% assign date = run.date | date: "%m/%d/%Y %H:%M:%S" -%}
+[{{date}}]({{ run.url }}) | {{run.global-stats.pdr}} | {{run.global-stats.latency}} | {{run.global-stats.duty-cycle}} |
 {% endfor %}
 
 {% else %}
