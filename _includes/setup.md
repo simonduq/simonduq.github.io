@@ -13,10 +13,7 @@
 * Repository: [{{ setup.repository }}](https://github.com/{{setup.repository}})
 * Branch: [{{ setup.branch }}](https://github.com/{{setup.repository}}/tree/{{setup.branch}})
 * Path: [{{ setup.xppath }}](https://github.com/{{setup.repository}}/tree/{{setup.branch}}/{{setup.xppath}})
-* Flags:
-{%- for f in setup.flags %}
-  * {{ f[0] }}: {{ f[1] }}
-{% endfor %}
+* Flags: [{{ setup.flags }}](https://github.com/{{setup.repository}}/tree/{{setup.branch}}/{{setup.xppath}}/Makefile)
 {% endif %}
 
 {{setup.description}}

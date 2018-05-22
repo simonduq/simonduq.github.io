@@ -27,7 +27,7 @@
 * Branch: [{{ branch }}](https://github.com/{{repository}}/tree/{{branch}})
 * Path: [{{ xppath }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}})
 * Flags: [{{ flags }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}}/Makefile)
-* Git commit: [{{ run.commit }}](https://github.com/{{run.repository}}/tree/{{run.commit}})
+* Git commit: [{{ run.commit }}](https://github.com/{{repository}}/tree/{{run.commit}})
 
 Raw logs available at [{{run.title}}.txt](/logs/{{run.title}}.txt)
 
