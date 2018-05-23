@@ -17,7 +17,7 @@ For graphs and statistics summary, visit: [{{setup.uid}}]({{setup.url}}).
 
 Runs for this setup:
 
-|  | PDR (%) | RTT (s) | Duty cycle (%) |
+|  | Round-trip PDR (%) | RTT (s) | Duty cycle (%) |
 | --- | ---: | ---: | ---:  |
 {% for run in runs -%}
 {% assign date = run.date | date: "%m/%d/%Y %H:%M:%S" -%}
