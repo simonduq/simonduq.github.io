@@ -1,7 +1,7 @@
 ---
 index: 0
 uid: test-tsch-optims
-label: RPL-Lite + TSCH + Orchestra (Optims)
+label: RPL-Lite + 6TiSCH + Orchestra (Optims)
 repository: simonduq/contiki-ng
 branch: wip/testbed
 xppath: examples/benchmarks/rpl-req-resp

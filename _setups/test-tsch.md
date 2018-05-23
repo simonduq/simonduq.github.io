@@ -1,7 +1,7 @@
 ---
 index: 1
 uid: test-tsch
-label: RPL-Lite + TSCH + Orchestra (Defaults)
+label: RPL-Lite + 6TiSCH + Orchestra (Defaults)
 repository: simonduq/contiki-ng
 branch: wip/testbed
 xppath: examples/benchmarks/rpl-req-resp

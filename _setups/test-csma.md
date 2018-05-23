@@ -1,7 +1,7 @@
 ---
 index: 2
 uid: test-csma
-label: RPL-Lite+CSMA (Defaults)
+label: RPL-Lite + CSMA (Defaults)
 repository: simonduq/contiki-ng
 branch: wip/testbed
 xppath: examples/benchmarks/rpl-req-resp
