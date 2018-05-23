@@ -63,7 +63,7 @@
 {% assign network_formation_mean = return %}
 
 * Run duration: {{duration_mean}} minutes
-* End-to-end PDR: {{pdr_mean}} %
+* Round-trip PDR: {{pdr_mean}} %
 * Round-trip latency: {{latency_mean}} seconds
 * Radio duty cycle: {{duty_cycle_mean}} %
 * Channel utilization: {{channel_utilization_mean}} %

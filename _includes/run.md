@@ -34,7 +34,7 @@ Raw logs available at [{{run.title}}.txt](/logs/{{run.title}}.txt)
 ## Statistics summary
 
 * Run duration: {{run.duration}} minutes
-* End-to-end PDR: {{run.global-stats.pdr}} % *({{run.global-stats.packets-received}}/{{run.global-stats.packets-sent}} packets, or a loss rate of {{run.global-stats.loss-rate}})*
+* Round-trip PDR: {{run.global-stats.pdr}} % *({{run.global-stats.packets-received}}/{{run.global-stats.packets-sent}} packets, or a loss rate of {{run.global-stats.loss-rate}})*
 * Round-trip latency: {{run.global-stats.latency}} seconds
 * Radio duty cycle: {{run.global-stats.duty-cycle}} %
 * Channel utilization: {{run.global-stats.channel-utilization}} %
