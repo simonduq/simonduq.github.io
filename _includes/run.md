@@ -29,7 +29,7 @@
 * Flags: [{{ flags }}](https://github.com/{{repository}}/tree/{{branch}}/{{xppath}}/Makefile)
 * Git commit: [{{ run.commit }}](https://github.com/{{repository}}/tree/{{run.commit}})
 
-Raw logs available at [{{run.title}}.txt](/logs/{{run.title}}.txt)
+Raw logs available at [{{run.title}}.zip](/logs/{{run.title}}.zip)
 
 ## Statistics summary
 
