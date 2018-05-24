@@ -1,7 +1,8 @@
 {% include plotly/header.md %}
 {% assign setup = page %}
 {% assign runs = site.runs | where: "setup", setup.uid %}
-{% assign runs = (runs | sort: "date") | reverse %}
+{% assign runs = runs | sort: "date" %}
+{% assign runs_reversed = runs | reverse %}
 {% assign runs_count = runs | size %}
 
 # Setup page
@@ -79,7 +80,7 @@ Runs for this setup:
 
 |  | Round-trip PDR (%) | RTT (s) | Duty cycle (%) |
 | --- | ---: | ---: | ---:  |
-{% for run in runs -%}
+{% for run in runs_reversed -%}
 {% assign date = run.date | date: "%m/%d/%Y %H:%M:%S" -%}
 [{{date}}]({{ run.url }}) | {{run.global-stats.pdr}} | {{run.global-stats.latency}} | {{run.global-stats.duty-cycle}} |
 {% endfor %}
