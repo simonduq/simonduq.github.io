@@ -38,36 +38,38 @@
 {% assign network_formation_array = network_formation_array | push: run.global-stats.network-formation-time %}
 {% endfor %}
 
+{% assign data_weights = duration_array %}
+
 {% assign data = duration_array %}
 {% include functions/mean.md %}
 {% assign duration_mean = return %}
 
 {% assign data = pdr_array %}
-{% include functions/mean.md %}
+{% include functions/mean-weighted.md %}
 {% assign pdr_mean = return %}
 
 {% assign data = latency_array %}
-{% include functions/mean.md %}
+{% include functions/mean-weighted.md %}
 {% assign latency_mean = return %}
 
 {% assign data = duty_cycle_array %}
-{% include functions/mean.md %}
+{% include functions/mean-weighted.md %}
 {% assign duty_cycle_mean = return %}
 
 {% assign data = channel_utilization_array %}
-{% include functions/mean.md %}
+{% include functions/mean-weighted.md %}
 {% assign channel_utilization_mean = return %}
 
 {% assign data = network_formation_array %}
 {% include functions/mean.md %}
 {% assign network_formation_mean = return %}
 
-* Run duration: {{duration_mean}} minutes
-* Round-trip PDR: {{pdr_mean}} %
-* Round-trip latency: {{latency_mean}} seconds
-* Radio duty cycle: {{duty_cycle_mean}} %
-* Channel utilization: {{channel_utilization_mean}} %
-* Network formation time: {{network_formation_mean}} seconds
+* Run duration: {{duration_mean | round: 1}} minutes
+* Round-trip PDR: {{pdr_mean | round: 4}} %
+* Round-trip latency: {{latency_mean | round: 4}} seconds
+* Radio duty cycle: {{duty_cycle_mean | round: 2}} %
+* Channel utilization: {{channel_utilization_mean | round: 4}} %
+* Network formation time: {{network_formation_mean | round: 1}} seconds
 
 ## Runs
 
