@@ -2,8 +2,8 @@
 index: 2
 uid: test-csma
 label: RPL-Lite + CSMA (Defaults)
-repository: simonduq/contiki-ng
-branch: wip/testbed
+repository: contiki-ng/contiki-ng
+branch: develop
 xppath: examples/benchmarks/rpl-req-resp
 flags:
   CONFIG: CONFIG_CSMA
